@@ -1,14 +1,23 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import CharacterList from './components/CharacterList';
 import CharacterForm from './components/CharacterForm';
+import Update from './components/Update';
 
 const App = () => {
   return (
-    <div>
-      <h1 className="text-center text-[#799896] text-3xl  font-bold my-4">Add Your Character:</h1>
-      <CharacterForm />
-      <CharacterList />
+    <Router>
+      <div>
+        <h1 className="text-center text-[#799896] text-3xl font-bold my-4">
+          Add Your Character:</h1>
 
-    </div>
+        <Routes>
+          <Route path="/" element={<><CharacterForm /><CharacterList /></>} />
+          <Route path="/update/:id" element={<Update/>} />
+        </Routes>
+        
+      </div>
+    </Router>
   );
 };
 
